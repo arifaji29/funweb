@@ -1,0 +1,99 @@
+/* Pengaturan Dasar & Latar Belakang Gradient */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    overflow: hidden; /* Mencegah scroll saat tombol keluar layar */
+}
+
+/* Kartu Utama dengan Efek Kaca (Glassmorphism) */
+.card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 40px 50px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    transition: all 0.3s ease;
+}
+
+/* Judul Pertanyaan */
+.question {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Kontainer Tombol */
+.buttons-container {
+    position: relative;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Styling Umum Tombol */
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Tombol "Iya" */
+#yesBtn {
+    background: linear-gradient(45deg, #2ed573, #1dd1a1);
+}
+
+/* Tombol "Tidak" */
+#noBtn {
+    background: linear-gradient(45deg, #ff6b81, #ff4757);
+    /* Posisi absolut agar bisa digerakkan oleh JavaScript */
+    /* position: absolute; */
+    /* Transisi mulus untuk pergerakan */
+    transition: top 0.4s ease-out, left 0.4s ease-out; 
+}
+
+/* Kontainer & Pesan Sukses */
+#message-container {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, height 0.3s ease;
+}
+
+#message {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2ed573;
+    line-height: 1.4;
+}
+
+/* Class untuk menyembunyikan elemen */
+.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+}
