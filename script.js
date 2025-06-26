@@ -9,11 +9,15 @@ const messageContainer = document.getElementById('message-container');
 const message = document.getElementById('message');
 
 // Event listener untuk tombol "Tidak"
-noBtn.addEventListener('mouseover', moveButton);
-noBtn.addEventListener('click', moveButton);
+noBtn.addEventListener('mouseover', moveButton);   // Untuk pengguna Desktop
+noBtn.addEventListener('touchstart', moveButton);  // TAMBAHAN: Untuk pengguna Mobile
+noBtn.addEventListener('click', moveButton);       // Sebagai cadangan
 
-function moveButton() {
-    // TAMBAHKAN BARIS INI: Mengubah posisi menjadi absolut saat pertama kali hover/klik
+function moveButton(event) {
+    // Mencegah perilaku default browser saat disentuh (seperti zoom atau 'ghost click')
+    event.preventDefault();
+
+    // Mengubah posisi menjadi absolut saat pertama kali hover/klik
     noBtn.style.position = 'absolute';
 
     const cardRect = card.getBoundingClientRect();
@@ -26,7 +30,6 @@ function moveButton() {
     noBtn.style.top = `${newTop}px`;
     noBtn.style.left = `${newLeft}px`;
 }
-
 
 // Event listener untuk tombol "Iya"
 yesBtn.addEventListener('click', () => {
